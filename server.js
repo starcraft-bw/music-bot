@@ -12,9 +12,14 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
-  if (message.content === '!ping') {
+  const validPrefixUsed = message.content.startsWith(config.prefix)
+  const command = message.content.substring(1, message.content.indexOf(' '))
+
+  if (validPrefixUsed) {
   	// send back "Pong." to the channel the message was sent in
-  	message.channel.send('Pong.');
+    if (command === 'music') {
+      require('./commands/music.js')(message)
+    }
   }
 });
 
