@@ -13,7 +13,7 @@ client.once('ready', () => {
 
 client.on('message', message => {
   const validPrefixUsed = message.content.startsWith(config.prefix)
-  const command = message.content.substring(1, message.content.indexOf(' '))
+  const command = message.content.substring(1)
 
   if (validPrefixUsed) {
   	// All command routes go here
@@ -21,7 +21,7 @@ client.on('message', message => {
       require('./commands/music.js')(message)
     }
   }
-  if (command === 'ping') {
+  if (message.content === 'ping') {
     message.channel.send('Pong.');
   }
   if (message.content === 'who is gay') {
