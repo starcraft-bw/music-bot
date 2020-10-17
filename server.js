@@ -21,6 +21,9 @@ client.on('message', message => {
       require('./commands/music.js')(message)
     }
   }
+  if (command === 'ping') {
+    message.channel.send('Pong.');
+  }
   if (message.content === 'who is gay') {
     message.guild.members.fetch().then((members) => {
       console.log(members.array())
