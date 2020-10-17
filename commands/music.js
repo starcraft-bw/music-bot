@@ -1,4 +1,5 @@
 // require the discord.js module
+const config = require('./config.json')
 const Discord = require('discord.js');
 
 module.exports = (message) => {
